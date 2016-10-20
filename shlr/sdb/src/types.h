@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #undef eprintf
 #define eprintf(x,y...) fprintf(stderr,x,##y)
@@ -80,7 +81,7 @@
 #include "config.h"
 
 static inline int seek_set(int fd, off_t pos) {
-	return ((fd==-1) || (lseek (fd, (off_t) pos, SEEK_SET) == -1))? 0:1;
+	return ((fd == -1) || (lseek (fd, (off_t) pos, SEEK_SET) == -1))? 0:1;
 }
 
 static inline void ut32_pack(char s[4], ut32 u) {
